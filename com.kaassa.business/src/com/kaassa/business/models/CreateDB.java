@@ -46,6 +46,8 @@ public class CreateDB extends SQLiteOpenHelper {
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		// TODO Auto-generated method stub
 		
+        sqlitedatabase.execSQL("DROP TABLE IF EXISTS hotelrecords");
+        onCreate(sqlitedatabase);
 	}
 
 }
