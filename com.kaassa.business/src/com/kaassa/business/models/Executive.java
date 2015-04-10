@@ -52,7 +52,7 @@ public class Executive
 		    dest.writeString(lastname);
 		    dest.writeString(gender);
 		    dest.writeString(titleEn);
-		    dest.writeByte(isBoardMember);
+		    dest.writeInt((Boolean) isBoardMember ? 1 : 0);
 		    dest.writeInt(compId);
 		  }
 		  
@@ -74,7 +74,7 @@ public class Executive
 			  lastname = in.readString();
 			  gender = in.readString();
 			  gender = in.readString();
-			  isBoardMember = in.readString();
+			  isBoardMember = (Boolean) in.readValue( null );
 			  compId = in.readInt();
 
 

@@ -54,16 +54,15 @@ public class Company {
 		public void setlocationCityName(String locationCityName) { this.locationCityName = locationCityName; }
 		public void setlocationCountryNamefr(String locationCountryNamefr) { this.locationCountryNamefr = locationCountryNamefr; }
 		public void setlocationCountryNameen(String locationCountryNameen) { this.locationCountryNameen = locationCountryNameen; }
-		public void setfoundation(String foundation) { this.foundation = foundation; }	
-		public void setemployees(String employees) { this.employees = employees; }
-		public void setslogan(Boolean slogan) { this.slogan = slogan; }
+		public void setfoundation(int foundation) { this.foundation = foundation; }	
+		public void setemployees(int employees) { this.employees = employees; }
+		public void setslogan(String slogan) { this.slogan = slogan; }
 		public void setpicturesId(int picturesId) { this.picturesId = picturesId; }
 		public void setpicturesAlt(String picturesAlt) { this.picturesAlt = picturesAlt; }
 		public void setindustryNamefr(String industryNamefr) { this.industryNamefr = industryNamefr; }
-		public void seIndustryNameen(String IndustryNameen) { this.IndustryNameen = IndustryNameen; }	
-		public void countryExecutives(String countryExecutives) { this.countryExecutives = countryExecutives; }
-		public void setIsBoardMember(Boolean parentCompId) { this.parentCompId = parentCompId; }
-		public void setparentCompId(int compId) { this.compId = compId; }
+		public void setIndustryNameen(String IndustryNameen) { this.IndustryNameen = IndustryNameen; }	
+		public void setcountryExecutives(int countryExecutives) { this.countryExecutives = countryExecutives; }
+		public void setIsBoardMember(int parentCompId) { this.parentCompId = parentCompId; }
 		
 		
 		// getters
@@ -71,41 +70,20 @@ public class Company {
 		public String getcontactEmail() { return contactEmail; }
 		public String getcontactPhoneone() { return contactPhoneone; }
 		public String getcontactWebsite() { return contactWebsite; }
-		public Boolean getlocationAddress() { return locationAddress; }
-		public int getlocationCityName() { return locationCityName; }
+		public String getlocationAddress() { return locationAddress; }
+		public String getlocationCityName() { return locationCityName; }
 		public String getlocationCountryNamefr() { return locationCountryNamefr; }
 		public String getlocationCountryNameen() { return locationCountryNameen; }
-		public String getfoundation() { return foundation; }
-		public String getemployees() { return titleEn; }
-		public Boolean getIsBoardMember() { return employees; }
-		public int getcompId() { return compId; }
-		public String getFirstname() { return firstname; }
-		public String getLastname() { return lastname; }
-		public String getGender() { return gender; }
-		public String getTitleEn() { return titleEn; }
-		public Boolean getIsBoardMember() { return isBoardMember; }
-		public int getcompId() { return compId; }
+		public int getfoundation() { return foundation; }
+		public int getemployees() { return employees; }
+		public String getslogan() { return slogan; }
+		public int getpicturesId() { return picturesId; }
+		public String getpicturesAlt() { return picturesAlt; }
+		public String getindustryNamefr() { return industryNamefr; }
+		public String getIndustryNameen() { return IndustryNameen; }
+		public int getcountryExecutives() { return countryExecutives; }
+		public int getIsBoardMember() { return parentCompId; }
 
-		
-		public void getname(String name) { this.name = name; }
-		public void getcontactEmail(String contactEmail) { this.contactEmail = contactEmail; }
-		public void getcontactPhoneone(String contactPhoneone) { this.contactPhoneone = contactPhoneone; }	
-		public void getcontactWebsite(String contactWebsite) { this.contactWebsite = contactWebsite; }
-		public void getlocationAddress(String locationAddress) { this.locationAddress = locationAddress; }
-		public void getlocationCityName(String locationCityName) { this.locationCityName = locationCityName; }
-		public void getlocationCountryNamefr(String locationCountryNamefr) { this.locationCountryNamefr = locationCountryNamefr; }
-		public void getlocationCountryNameen(String locationCountryNameen) { this.locationCountryNameen = locationCountryNameen; }
-		public void getfoundation(String foundation) { this.foundation = foundation; }	
-		public void getemployees(String employees) { this.employees = employees; }
-		public void slogan(Boolean slogan) { this.slogan = slogan; }
-		public void getpicturesId(int picturesId) { this.picturesId = picturesId; }
-		public void getpicturesAlt(String picturesAlt) { this.picturesAlt = picturesAlt; }
-		public void getindustryNamefr(String industryNamefr) { this.industryNamefr = industryNamefr; }
-		public void seIndustryNameen(String IndustryNameen) { this.IndustryNameen = IndustryNameen; }	
-		public void countryExecutives(String countryExecutives) { this.countryExecutives = countryExecutives; }
-		public void getIsBoardMember(Boolean parentCompId) { this.parentCompId = parentCompId; }
-		public void getparentCompId(int compId) { this.compId = compId; }
-		
 		  public int describeContents() {
 		    //On renvoie 0, car notre classe ne contient pas de FileDescriptor
 		    return 0;
@@ -113,35 +91,56 @@ public class Company {
 
 		  public void writeToParcel(Parcel dest, int flags) {
 		    // On ajoute les objets dans l'ordre dans lequel on les a déclarés
-		    dest.writeString(firstname);
-		    dest.writeString(lastname);
-		    dest.writeString(gender);
-		    dest.writeString(titleEn);
-		    dest.writeByte(isBoardMember);
-		    dest.writeInt(compId);
+		    dest.writeString(name);
+		    dest.writeString(contactEmail);
+		    dest.writeString(contactPhoneone);
+		    dest.writeString(contactWebsite);
+		    dest.writeString(locationAddress);
+		    dest.writeString(locationCityName);
+		    dest.writeString(locationCountryNamefr);
+		    dest.writeString(locationCountryNameen);
+		    dest.writeInt(foundation);
+		    dest.writeInt(employees);
+		    dest.writeString(slogan);
+		    dest.writeInt(picturesId);
+		    dest.writeString(picturesAlt);
+		    dest.writeString(industryNamefr);
+		    dest.writeString(industryNamefr);
+		    dest.writeInt(countryExecutives);
+		    dest.writeInt(parentCompId);
 		  }
 		  
-		  public static final Parcelable.Creator<Executive> CREATOR = new Parcelable.Creator<Executive>() {
+		  public static final Parcelable.Creator<Company> CREATOR = new Parcelable.Creator<Company>() {
 			  @Override
-			  public Executive createFromParcel(Parcel source) {
-			    return new Executive(source);
+			  public Company createFromParcel(Parcel source) {
+			    return new Company(source);
 			  }
 
 			  @Override
-			  public Executive[] newArray(int size) {
-			    return new Executive[size];
+			  public Company[] newArray(int size) {
+			    return new Company[size];
 			  }
 			};
 
-			public Executive(Parcel in) {
+			public Company(Parcel in) {
 			  Log.i("Read", "ParcelData(Parcel source): time to put back parcel data");
-			  firstname = in.readString();
-			  lastname = in.readString();
-			  gender = in.readString();
-			  gender = in.readString();
-			  isBoardMember = in.readString();
-			  compId = in.readInt();
-
+			  name = in.readString();
+			  contactEmail = in.readString();
+			  contactPhoneone = in.readString();
+			  contactWebsite = in.readString();
+			  locationAddress = in.readString();
+			  locationCityName = in.readString();
+			  locationCountryNamefr = in.readString();
+			  locationCountryNameen = in.readString();
+			  foundation = in.readInt();
+			  employees = in.readInt();
+			  slogan = in.readString();
+			  picturesId = in.readInt();
+			  picturesAlt = in.readString();
+			  industryNamefr = in.readString();
+			  IndustryNameen = in.readString();
+			  countryExecutives = in.readInt();
+			  parentCompId = in.readInt();
 
 			}
 	      
