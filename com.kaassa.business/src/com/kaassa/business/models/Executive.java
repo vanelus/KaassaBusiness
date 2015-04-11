@@ -23,6 +23,16 @@ public class Executive
 			this.compId = compId;			
 		}
 		
+		public Executive() {
+			// TODO Auto-generated constructor stub
+			this.firstname = "";
+			this.lastname = "";
+			this.gender = "";
+			this.titleEn = "";
+			this.isBoardMember = false;
+			this.compId = 0;	
+		}
+		
 		 // setter
 		public void setFirstname(String firstname) { this.firstname = firstname; }
 		public void setLastname(String lastname) { this.lastname = lastname; }
@@ -79,6 +89,8 @@ public class Executive
 
 
 			}
+
+
 	      
 	
 }

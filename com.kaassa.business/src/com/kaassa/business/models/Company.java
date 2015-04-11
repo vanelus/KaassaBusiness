@@ -45,6 +45,26 @@ public class Company {
 			this.parentCompId = parentCompId;
 		}
 		
+		public Company() {
+			// TODO Auto-generated constructor stub
+			this.name = "";
+			this.contactEmail = "";
+			this.contactPhoneone = "";
+			this.contactWebsite = "";
+			this.locationAddress = "";
+			this.locationCityName = "";	
+			this.locationCountryNamefr = "";
+			this.locationCountryNameen = "";
+			this.foundation = 0;
+			this.employees = 0;
+			this.slogan = "";
+			this.picturesId = 0;		
+			this.picturesAlt = "";
+			this.industryNamefr = "";
+			this.IndustryNameen = "";
+			this.countryExecutives = 0;
+			this.parentCompId = 0;
+		}
 		 // setter
 		public void setname(String name) { this.name = name; }
 		public void setcontactEmail(String contactEmail) { this.contactEmail = contactEmail; }
@@ -62,7 +82,7 @@ public class Company {
 		public void setindustryNamefr(String industryNamefr) { this.industryNamefr = industryNamefr; }
 		public void setIndustryNameen(String IndustryNameen) { this.IndustryNameen = IndustryNameen; }	
 		public void setcountryExecutives(int countryExecutives) { this.countryExecutives = countryExecutives; }
-		public void setIsBoardMember(int parentCompId) { this.parentCompId = parentCompId; }
+		public void setparentCompId(int parentCompId) { this.parentCompId = parentCompId; }
 		
 		
 		// getters
@@ -82,7 +102,7 @@ public class Company {
 		public String getindustryNamefr() { return industryNamefr; }
 		public String getIndustryNameen() { return IndustryNameen; }
 		public int getcountryExecutives() { return countryExecutives; }
-		public int getIsBoardMember() { return parentCompId; }
+		public int getparentCompId() { return parentCompId; }
 
 		  public int describeContents() {
 		    //On renvoie 0, car notre classe ne contient pas de FileDescriptor
@@ -143,5 +163,7 @@ public class Company {
 			  parentCompId = in.readInt();
 
 			}
+
+	
 	      
 }

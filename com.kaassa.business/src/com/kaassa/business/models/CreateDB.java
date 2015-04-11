@@ -91,9 +91,8 @@ public class CreateDB extends SQLiteOpenHelper {
             + KEY_COMPID+ " INTEGER FOREIGN KEY"  
     		+ ")";
     
-	public CreateDB(Context context, String name, CursorFactory factory,
-			int version) {
-		super(context, name, factory, version);
+	public CreateDB(Context context) {
+		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 		// TODO Auto-generated constructor stub
 	}
 
