@@ -1,10 +1,16 @@
 package com.kaassa.business.models;
 
+import java.util.HashMap;
+
+import com.google.gson.annotations.SerializedName;
+
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
 
 public class Company {
+	
+		
 	  	String name;
 	  	String contactEmail;
 	  	String contactPhoneone;
@@ -14,18 +20,19 @@ public class Company {
 	  	String locationCountryNamefr;
 	  	String locationCountryNameen;
 	  	int foundation;
-	  	int employees;
+	  	String employees;
 	  	String slogan;
 	  	int picturesId;
 	  	String picturesAlt;
 	  	String industryNamefr;
 	  	String IndustryNameen;
 	  	int countryExecutives;
-	  	int parentCompId;
-
+	  	String companySlug;
+	  	HashMap<String, Company> subsidiaries = new HashMap<String, Company>();
+	  	HashMap<String, Executive> executives = new HashMap<String, Executive>();
 	 
 	    // constructors
-		public Company(String name,String contactEmail,String contactPhoneone,String contactWebsite,String locationAddress,String locationCityName,String locationCountryNamefr,String locationCountryNameen,int foundation,int employees,String slogan,int picturesId,String picturesAlt,String industryNamefr,String IndustryNameen,int countryExecutives,int parentCompId) {
+		public Company(String name,String contactEmail,String contactPhoneone,String contactWebsite,String locationAddress,String locationCityName,String locationCountryNamefr,String locationCountryNameen,int foundation,String employees,String slogan,int picturesId,String picturesAlt,String industryNamefr,String IndustryNameen,int countryExecutives, String companySlug, HashMap<String, Company> subsidiaries, HashMap<String, Executive> executives) {
 			this.name = name;
 			this.contactEmail = contactEmail;
 			this.contactPhoneone = contactPhoneone;
@@ -42,7 +49,9 @@ public class Company {
 			this.industryNamefr = industryNamefr;
 			this.IndustryNameen = IndustryNameen;
 			this.countryExecutives = countryExecutives;
-			this.parentCompId = parentCompId;
+			this.companySlug = companySlug;
+			this.subsidiaries = subsidiaries;
+			this.executives = executives;
 		}
 		
 		public Company() {
@@ -56,14 +65,16 @@ public class Company {
 			this.locationCountryNamefr = "";
 			this.locationCountryNameen = "";
 			this.foundation = 0;
-			this.employees = 0;
+			this.employees = "";
 			this.slogan = "";
 			this.picturesId = 0;		
 			this.picturesAlt = "";
 			this.industryNamefr = "";
 			this.IndustryNameen = "";
 			this.countryExecutives = 0;
-			this.parentCompId = 0;
+			this.companySlug = "";
+			this.subsidiaries = null;
+			this.executives = null;
 		}
 		 // setter
 		public void setname(String name) { this.name = name; }
@@ -75,14 +86,16 @@ public class Company {
 		public void setlocationCountryNamefr(String locationCountryNamefr) { this.locationCountryNamefr = locationCountryNamefr; }
 		public void setlocationCountryNameen(String locationCountryNameen) { this.locationCountryNameen = locationCountryNameen; }
 		public void setfoundation(int foundation) { this.foundation = foundation; }	
-		public void setemployees(int employees) { this.employees = employees; }
+		public void setemployees(String employees) { this.employees = employees; }
 		public void setslogan(String slogan) { this.slogan = slogan; }
 		public void setpicturesId(int picturesId) { this.picturesId = picturesId; }
 		public void setpicturesAlt(String picturesAlt) { this.picturesAlt = picturesAlt; }
 		public void setindustryNamefr(String industryNamefr) { this.industryNamefr = industryNamefr; }
 		public void setIndustryNameen(String IndustryNameen) { this.IndustryNameen = IndustryNameen; }	
+		public void setcompanySlug(String companySlug) { this.companySlug = companySlug; }	
 		public void setcountryExecutives(int countryExecutives) { this.countryExecutives = countryExecutives; }
-		public void setparentCompId(int parentCompId) { this.parentCompId = parentCompId; }
+		public void setSubsidiaries(HashMap<String, Company> subsidiaries) { this.subsidiaries = subsidiaries; }
+		public void setExecutives(HashMap<String, Executive> executives) { this.executives = executives; }
 		
 		
 		// getters
@@ -95,14 +108,16 @@ public class Company {
 		public String getlocationCountryNamefr() { return locationCountryNamefr; }
 		public String getlocationCountryNameen() { return locationCountryNameen; }
 		public int getfoundation() { return foundation; }
-		public int getemployees() { return employees; }
+		public String getemployees() { return employees; }
 		public String getslogan() { return slogan; }
 		public int getpicturesId() { return picturesId; }
 		public String getpicturesAlt() { return picturesAlt; }
 		public String getindustryNamefr() { return industryNamefr; }
 		public String getIndustryNameen() { return IndustryNameen; }
 		public int getcountryExecutives() { return countryExecutives; }
-		public int getparentCompId() { return parentCompId; }
+		public String getcompanySlug() { return companySlug; }		
+		public HashMap<String, Company> getSubsidiaries() { return subsidiaries; }
+		public HashMap<String, Executive> getExecutives() { return executives; }
 
 		  public int describeContents() {
 		    //On renvoie 0, car notre classe ne contient pas de FileDescriptor
@@ -120,14 +135,16 @@ public class Company {
 		    dest.writeString(locationCountryNamefr);
 		    dest.writeString(locationCountryNameen);
 		    dest.writeInt(foundation);
-		    dest.writeInt(employees);
+		    dest.writeString(employees);
 		    dest.writeString(slogan);
 		    dest.writeInt(picturesId);
 		    dest.writeString(picturesAlt);
 		    dest.writeString(industryNamefr);
 		    dest.writeString(industryNamefr);
 		    dest.writeInt(countryExecutives);
-		    dest.writeInt(parentCompId);
+		    dest.writeString(companySlug);
+		    dest.writeMap(subsidiaries);
+		    dest.writeMap(executives);
 		  }
 		  
 		  public static final Parcelable.Creator<Company> CREATOR = new Parcelable.Creator<Company>() {
@@ -153,14 +170,16 @@ public class Company {
 			  locationCountryNamefr = in.readString();
 			  locationCountryNameen = in.readString();
 			  foundation = in.readInt();
-			  employees = in.readInt();
+			  employees = in.readString();
 			  slogan = in.readString();
 			  picturesId = in.readInt();
 			  picturesAlt = in.readString();
 			  industryNamefr = in.readString();
 			  IndustryNameen = in.readString();
 			  countryExecutives = in.readInt();
-			  parentCompId = in.readInt();
+			  companySlug = in.readString();  
+			  in.readMap(executives, null);
+			  in.readMap(executives, null);
 
 			}
 

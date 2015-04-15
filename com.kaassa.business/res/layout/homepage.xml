@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context="com.kaassa.mobile.MainActivity" >
+
+            
+     <EditText
+        android:id="@+id/fld_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:inputType="textEmailAddress"
+        android:textColor="@android:color/black"
+        android:paddingLeft="5dp"
+        android:textSize="20sp"
+        android:layout_gravity="center_vertical"/>
+            
+     <Button
+	    android:id="@+id/btn_search_company"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:text="Search Companies"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:background="#47a447"
+        android:layout_below="@+id/fld_pwd"/>
+     
+          <Button
+	    android:id="@+id/btn_search_executive"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:text="Search Executives"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:background="#47a447"
+        android:layout_below="@+id/btn_search_company"/>
+
+</RelativeLayout>

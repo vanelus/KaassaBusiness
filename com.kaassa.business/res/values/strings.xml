@@ -1,5 +1,13 @@
 <resources>
 
-    <string name="app_name">com.kaassa.business</string>
+    <string name="app_name">KaassaBusiness</string>
+    <string name="activity_homepage_name">Home</string>
+    <string name="action_settings">settings</string>
+    <string name="action_leaveusmessage">leave us a message</string>
+    <string name="AboutKaassa_dialog_message">About Kaassa</string>
+    <string name="AboutKaassa_dialog_title">About Kaassa</string>
+    <string name="AboutKaassa_dialog_ok">OK</string>
+    
+    
 
 </resources>
