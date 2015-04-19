@@ -20,8 +20,10 @@ public class Company {
 	  	String slogan;
 	  	List<Picture> pictures;
 	  	Industry industry;
+	  	@SerializedName("children")
 	  	List<Company> subsidiaries;
 	  	List<Executive> executives;
+	  	@SerializedName("count_executives")
 	  	int countExecutives;
 	  	String parentCompanySlug;
 	  	
