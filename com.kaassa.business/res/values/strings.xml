@@ -2,6 +2,8 @@
 
     <string name="app_name">KaassaBusiness</string>
     <string name="activity_homepage_name">Home</string>
+    <string name="activity_companylist_name">Companies List</string>
+    <string name="activity_companydetail_name">Company Detail</string>
     <string name="action_settings">settings</string>
     <string name="action_leaveusmessage">leave us a message</string>
     <string name="AboutKaassa_dialog_message">About Kaassa</string>

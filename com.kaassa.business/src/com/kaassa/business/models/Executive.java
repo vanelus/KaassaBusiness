@@ -14,7 +14,7 @@ public class Executive
 	  	String titleEn;
 	  	Boolean isBoardMember;
 	  	String executiveSlug;
-	  	Company company = new Company() ;
+	  	Company company ;
 	 
 	    // constructors
 		public Executive(String firstname,String lastname,String gender,String titleEn,Boolean isBoardMember,String executiveSlug,Company company) {

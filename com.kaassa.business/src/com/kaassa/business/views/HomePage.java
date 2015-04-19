@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.kaassa.business.R;
 import com.kaassa.business.controllers.CallKaassaBusinessWS;
+import com.kaassa.business.controllers.ManageViewTransitions;
 import com.kaassa.business.models.Company;
 
 import android.app.Activity;
@@ -26,6 +27,7 @@ public class HomePage extends Activity implements OnClickListener
 	Button search_executive;
 	
 	CallKaassaBusinessWS callKaassaWS = new CallKaassaBusinessWS();
+	ManageViewTransitions manageView = new ManageViewTransitions();
 	
 	
 	@Override
@@ -108,9 +110,12 @@ public class HomePage extends Activity implements OnClickListener
 		switch (v.getId())
 		{
 			case R.id.btn_search_company:
-				List<Company> companiesList = new ArrayList<Company>();
 				
-				companiesList = callKaassaWS.getJsonData("", v.getContext());
+				//Call KaassaBusiness Web Service to Get Companies list
+				callKaassaWS.getJsonData("", v.getContext());
+				
+				// Call the Transition method From the current view to "Companies List View"
+				manageView.HomepageToCompanylist(v.getContext());
 				
 			break;
 			

@@ -21,6 +21,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <activity
+            android:name="com.kaassa.business.views.CompanyList"
+            android:label="@string/activity_companylist_name" >
+        </activity>
+        <activity
+            android:name="com.kaassa.business.views.CompanyDetail"
+            android:label="@string/activity_companydetail_name"
+			>
+        </activity>
     </application>
 
 </manifest>
