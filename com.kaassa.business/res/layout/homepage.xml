@@ -7,7 +7,7 @@
 
             
      <EditText
-        android:id="@+id/fld_pwd"
+        android:id="@+id/edittext_searchedtext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -16,31 +16,45 @@
         android:paddingLeft="5dp"
         android:textSize="20sp"
         android:layout_gravity="center_vertical"/>
-            
+      
+     <RadioGroup
+	    android:id="@+id/radio_group_search_choice"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="15dp"
+	    android:orientation="horizontal"
+	    android:gravity="center_horizontal"
+	    android:layout_below="@+id/edittext_searchedtext">
+	    
+	    <RadioButton android:id="@+id/radio_group_search_choice_company"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/activity_homepage_radiobutton_company"
+	        android:textColor="@android:color/black"
+	        android:textSize="13sp"
+	        android:checked="true"/>
+	    	    
+	    <RadioButton android:id="@+id/radio_group_search_choice_executive"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/activity_homepage_radiobutton_executive"
+	        android:textSize="13sp"
+	        android:textColor="@android:color/black"/>
+	    
+	    </RadioGroup>
+	    
      <Button
 	    android:id="@+id/btn_search_company"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 		android:layout_centerHorizontal="true"
-		android:text="Search Companies"
+		android:text="@string/activity_homepage_btn_search_company"
         android:layout_marginTop="5dp"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@android:color/white"
         android:background="#47a447"
-        android:layout_below="@+id/fld_pwd"/>
-     
-          <Button
-	    android:id="@+id/btn_search_executive"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-		android:layout_centerHorizontal="true"
-		android:text="Search Executives"
-        android:layout_marginTop="5dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/white"
-        android:background="#47a447"
-        android:layout_below="@+id/btn_search_company"/>
+        android:layout_below="@+id/radio_group_search_choice"/>
+
 
 </RelativeLayout>

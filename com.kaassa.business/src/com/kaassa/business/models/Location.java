@@ -1,6 +1,9 @@
 package com.kaassa.business.models;
 
-public class Location {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Location implements Parcelable {
 	
 	String address;
 	City city;
@@ -16,5 +19,18 @@ public class Location {
 	public String getAddress() { return address; }
 	public City getCity() { return city; }
 	public Country getCountry() { return country; }
+	@Override
+	public int describeContents() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		// TODO Auto-generated method stub
+		
+	    dest.writeString(address);
+	    dest.writeParcelable(city, flags);
+	    dest.writeParcelable(country, flags);
+	}
 
 }

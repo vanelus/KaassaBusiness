@@ -10,7 +10,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
 
-public class Company {
+public class Company implements Parcelable {
 	
 	  	String name;
 	  	String slug;
@@ -91,4 +91,55 @@ public class Company {
 		public String getParentCompanySlug() { return parentCompanySlug; }
 
 	      
+		  public void writeToParcel(Parcel dest, int flags) {
+		    // On ajoute les objets dans l'ordre dans lequel on les a déclarés
+		    dest.writeString(name);
+		    dest.writeString(slug);
+		    dest.writeParcelable(location, flags);
+		    dest.writeParcelable(contact, flags);
+		    dest.writeInt(foundation);
+		    dest.writeString(slogan);
+		    dest.writeList(pictures);
+		    dest.writeParcelable(industry, flags);
+		    dest.writeList(subsidiaries);
+		    dest.writeList(executives);
+		    dest.writeInt(countExecutives);
+
+
+		  }
+		  
+		  public static final Parcelable.Creator<Company> CREATOR = new Parcelable.Creator<Company>() {
+			  @Override
+			  public Company createFromParcel(Parcel source) {
+			    return new Company(source);
+			  }
+
+			  @Override
+			  public Company[] newArray(int size) {
+			    return new Company[size];
+			  }
+			};
+
+			public Company(Parcel in) {
+			  name = in.readString();
+			  slug = in.readString();
+			  location = in.readParcelable(Location.class.getClassLoader());
+			  contact = in.readParcelable(Contact.class.getClassLoader());
+			  foundation = in.readInt();
+			  slogan = in.readString();
+			  in.readList(pictures, Picture.class.getClassLoader()); 
+			  industry = in.readParcelable(Industry.class.getClassLoader());
+			  in.readList(subsidiaries, Company.class.getClassLoader());
+			  in.readList(executives, Executive.class.getClassLoader());
+			  countExecutives = in.readInt();
+
+			}
+
+			@Override
+			public int describeContents() {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+		
+		
 }

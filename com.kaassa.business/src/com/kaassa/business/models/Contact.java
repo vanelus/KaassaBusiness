@@ -1,7 +1,9 @@
 package com.kaassa.business.models;
 
-public class Contact {
+import android.os.Parcel;
+import android.os.Parcelable;
 
+public class Contact implements Parcelable {
 	String email;
 	String phone_one;
 	String phone_two;
@@ -19,6 +21,20 @@ public class Contact {
 	public String getPhoneOne() { return phone_one; }
 	public String getPhoneTwo() { return phone_two; }
 	public String getWebSite() { return web_site; }
+	
+	@Override
+	public int describeContents() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		// TODO Auto-generated method stub
+		dest.writeString(email);
+		dest.writeString(phone_one);
+		dest.writeString(phone_two);
+		dest.writeString(web_site);
+	}
 	
 	
 }

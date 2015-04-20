@@ -7,6 +7,7 @@ import com.kaassa.business.R;
 import com.kaassa.business.models.Company;
 import com.kaassa.business.controllers.CallKaassaBusinessWS;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,6 +67,11 @@ public class CompanyAdapter extends BaseAdapter {
 
 		return view;
 		
+	}
+	
+	// Filter Hotels By Name
+	public void filterCompanyByName(final String charText, Context myContext) {
+
 	}
 
 }

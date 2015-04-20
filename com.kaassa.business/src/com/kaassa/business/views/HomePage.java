@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.RadioGroup;
 
 public class HomePage extends Activity implements OnClickListener 
 {
@@ -36,10 +37,8 @@ public class HomePage extends Activity implements OnClickListener
 		setContentView(R.layout.homepage);
 		
 		search_company = (Button)findViewById(R.id.btn_search_company);
-		search_executive = (Button)findViewById(R.id.btn_search_executive);
 		
 		search_company.setOnClickListener(this);
-		search_executive.setOnClickListener(this);
 		
 	}
 
@@ -107,23 +106,23 @@ public class HomePage extends Activity implements OnClickListener
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		
-		switch (v.getId())
+		//check wether the search concern Company or Executive
+		RadioGroup rg_search_choice = (RadioGroup) findViewById(R.id.radio_group_search_choice);
+		
+		// radio button "company" is checked
+		if (rg_search_choice.getCheckedRadioButtonId() == R.id.radio_group_search_choice_company)
 		{
-			case R.id.btn_search_company:
-				
-				//Call KaassaBusiness Web Service to Get Companies list
-				callKaassaWS.getJsonData("", v.getContext());
-				
-				// Call the Transition method From the current view to "Companies List View"
-				manageView.HomepageToCompanylist(v.getContext());
-				
-			break;
+			//Call KaassaBusiness Web Service to Get Companies list
+			callKaassaWS.getJsonData("", v.getContext());
 			
-			case R.id.btn_search_executive:
-				
-			break;
+			// Call the Transition method From the current view to "Companies List View"
+			manageView.HomepageToCompanylist(v.getContext());
 		}
+		// radio button "executive" is checked
+		else
+		{
 
+		}
 	}
 
 			

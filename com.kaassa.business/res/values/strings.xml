@@ -2,6 +2,9 @@
 
     <string name="app_name">KaassaBusiness</string>
     <string name="activity_homepage_name">Home</string>
+    <string name="activity_homepage_radiobutton_company">Companies</string>
+    <string name="activity_homepage_radiobutton_executive">Executives</string>
+    <string name="activity_homepage_btn_search_company">Search</string>
     <string name="activity_companylist_name">Companies List</string>
     <string name="activity_companydetail_name">Company Detail</string>
     <string name="action_settings">settings</string>
