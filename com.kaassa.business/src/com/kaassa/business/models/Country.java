@@ -33,5 +33,25 @@ public class Country implements Parcelable {
 	    dest.writeString(slug);
 
 	}
+	
+	public Country(Parcel in) 
+	{
+		name_e_n = in.readString();
+		name_f_r = in.readString();
+		slug = in.readString();
+	}
+	
+	public static final Parcelable.Creator<Country> CREATOR = new Parcelable.Creator<Country>() 
+	{
+		  @Override
+		  public Country createFromParcel(Parcel source) {
+		    return new Country(source);
+		  }
+
+		  @Override
+		  public Country[] newArray(int size) {
+		    return new Country[size];
+		  }
+	};
 
 }

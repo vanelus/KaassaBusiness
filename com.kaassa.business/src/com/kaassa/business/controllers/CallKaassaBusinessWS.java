@@ -37,29 +37,6 @@ public class CallKaassaBusinessWS
 	// getters
 	public List<Company> getCompaniesList() { return companiesList; }
 		
-	
-	/**
-	  * @desc Save datas in "in-memory" object collections from jsondata.
-	  * @param Context myContext
-	  * @param String jsonDataResult
-	  * @return void
-	*/
-	public void saveCompaniesFromJson(Context myContext, List<Company> companiesList)
-	{
-
-    	
-
-		
-    	Gson gson = new Gson();
-    	Company response = gson.fromJson(companiesList.toString(), Company.class);
-
-    	
-    	
- 
-		
-	}
-	
-	
 	/**
 	  * @desc Call a Web service From the search button (homepage view) to get companies and executives and return related json data
 	  * @param String searchedCompany

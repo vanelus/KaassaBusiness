@@ -1,5 +1,6 @@
 package com.kaassa.business.models;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,11 +19,11 @@ public class Company implements Parcelable {
 	  	Contact contact;
 	  	int foundation;
 	  	String slogan;
-	  	List<Picture> pictures;
+	  	List<Picture> pictures = new ArrayList<Picture>();
 	  	Industry industry;
 	  	@SerializedName("children")
-	  	List<Company> subsidiaries;
-	  	List<Executive> executives;
+	  	List<Company> subsidiaries = new ArrayList<Company>();
+	  	List<Executive> executives = new ArrayList<Executive>();
 	  	@SerializedName("count_executives")
 	  	int countExecutives;
 	  	String parentCompanySlug;
@@ -99,10 +100,11 @@ public class Company implements Parcelable {
 		    dest.writeParcelable(contact, flags);
 		    dest.writeInt(foundation);
 		    dest.writeString(slogan);
-		    dest.writeList(pictures);
+		    
+		    dest.writeTypedList(pictures);
 		    dest.writeParcelable(industry, flags);
-		    dest.writeList(subsidiaries);
-		    dest.writeList(executives);
+		    dest.writeTypedList(subsidiaries);
+		    dest.writeTypedList(executives);
 		    dest.writeInt(countExecutives);
 
 
@@ -127,10 +129,11 @@ public class Company implements Parcelable {
 			  contact = in.readParcelable(Contact.class.getClassLoader());
 			  foundation = in.readInt();
 			  slogan = in.readString();
-			  in.readList(pictures, Picture.class.getClassLoader()); 
+		      
+			  in.readTypedList(pictures, Picture.CREATOR); 
 			  industry = in.readParcelable(Industry.class.getClassLoader());
-			  in.readList(subsidiaries, Company.class.getClassLoader());
-			  in.readList(executives, Executive.class.getClassLoader());
+			  in.readTypedList(subsidiaries, Company.CREATOR);
+			  in.readTypedList(executives, Executive.CREATOR);
 			  countExecutives = in.readInt();
 
 			}

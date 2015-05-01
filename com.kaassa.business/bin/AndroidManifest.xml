@@ -4,8 +4,8 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="8" />
+        android:minSdkVersion="11"
+        android:targetSdkVersion="11" />
 
     <application
         android:allowBackup="true"
@@ -26,8 +26,19 @@
             android:name="com.kaassa.business.views.CompanyList"
             android:label="@string/activity_companylist_name" >
         </activity>
+        
+        <activity
+            android:name="com.kaassa.business.views.ExecutiveList"
+            android:label="@string/activity_executivelist_name" >
+        </activity>
+        
         <activity
             android:name="com.kaassa.business.views.CompanyDetail"
+            android:label="@string/activity_companydetail_name"
+			>
+        </activity>
+        <activity
+            android:name="com.kaassa.business.views.CompanyDetail2"
             android:label="@string/activity_companydetail_name"
 			>
         </activity>

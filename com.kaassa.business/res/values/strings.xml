@@ -6,6 +6,7 @@
     <string name="activity_homepage_radiobutton_executive">Executives</string>
     <string name="activity_homepage_btn_search_company">Search</string>
     <string name="activity_companylist_name">Companies List</string>
+    <string name="activity_executivelist_name">Executives List</string>
     <string name="activity_companydetail_name">Company Detail</string>
     <string name="action_settings">settings</string>
     <string name="action_leaveusmessage">leave us a message</string>

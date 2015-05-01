@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+            <TextView android:id="@+id/company_name"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentTop="true"
+			android:layout_alignParentLeft="true"
+			android:textStyle="bold"
+			android:textSize="18sp"
+			android:textColor="@android:color/black"
+			/>
+
+        	<TextView android:id="@+id/location_city_and_country_name"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/company_name"
+			android:textSize="12sp"
+			android:textColor="@android:color/black"
+			 /> 
+			 
+        	<TextView android:id="@+id/industry_name_en"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/location_city_and_country_name"
+			android:textSize="12sp"
+			android:textColor="@android:color/black"
+			 />
+        	
+		     <TextView android:id="@+id/count_executives"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/industry_name_en"
+			android:textSize="12sp"
+			android:textColor="@android:color/black"
+			 />
+		     
+		    <TextView android:id="@+id/contact_email"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/count_executives"
+			android:textSize="12sp"
+			android:textColor="@android:color/black"
+			 />
+		     		     
+		    <TextView android:id="@+id/contact_phone"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/contact_email"
+			android:textSize="12sp"
+			android:textColor="@android:color/black"
+			 />
+
+		     		     
+		    <TextView android:id="@+id/slogan"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/contact_phone"
+			android:textSize="12sp"
+			android:textColor="@android:color/black"
+			 />
+
+			<LinearLayout 
+			    android:orientation="horizontal"
+			    android:layout_width="fill_parent"
+			    android:layout_height="fill_parent"
+			    android:layout_below="@+id/slogan">
+			
+			    <fragment android:name="com.kaassa.business.views.ExecutiveFragment"
+			              android:id="@+id/executivefragment"
+			              android:layout_weight="1"
+			              android:layout_width="0dp"
+			              android:layout_height="match_parent" />
+			
+			    <fragment android:name="com.kaassa.business.views.SubsidiaryFragment"
+			              android:id="@+id/subsidiaryfragment"
+			              android:layout_weight="1"
+			              android:layout_width="0dp"
+			              android:layout_height="match_parent" />
+			
+			</LinearLayout>
+</RelativeLayout>

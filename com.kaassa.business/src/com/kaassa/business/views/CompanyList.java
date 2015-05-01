@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class CompanyList extends Activity {
 
@@ -31,7 +32,12 @@ public class CompanyList extends Activity {
 	        ListView companies_list = (ListView)findViewById(R.id.companies_list);
 	        companyAdapter = new CompanyAdapter();
 	        companies_list.setAdapter(companyAdapter);
-	    	
+	        
+	        //Set company list results count
+	        TextView companies_list_results_count = (TextView)findViewById(R.id.companies_list_results_count);
+	        companies_list_results_count.setText("Results : " + companies_list.getCount() + " companies...");
+	        
+	        
 	    	//Handle click on company from "Companies List"
 	        companies_list.setOnItemClickListener(new AdapterView.OnItemClickListener() 
     		{

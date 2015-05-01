@@ -2,29 +2,30 @@ package com.kaassa.business.models;
 
 import java.util.HashMap;
 
+import com.google.gson.annotations.SerializedName;
+
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
 
-public class Executive 
+public class Executive  implements Parcelable 
 {
 	  	String firstname;
 	  	String lastname;
 	  	String gender;
+	  	@SerializedName("title_e_n")
 	  	String titleEn;
 	  	Boolean isBoardMember;
 	  	String executiveSlug;
-	  	Company company ;
 	 
 	    // constructors
-		public Executive(String firstname,String lastname,String gender,String titleEn,Boolean isBoardMember,String executiveSlug,Company company) {
+		public Executive(String firstname,String lastname,String gender,String titleEn,Boolean isBoardMember,String executiveSlug) {
 			this.firstname = firstname;
 			this.lastname = lastname;
 			this.gender = gender;
 			this.titleEn = titleEn;
 			this.isBoardMember = isBoardMember;
 			this.executiveSlug = executiveSlug;
-			this.company = company;
 			
 		}
 		
@@ -36,7 +37,6 @@ public class Executive
 			this.titleEn = "";
 			this.isBoardMember = false;
 			this.executiveSlug = "";
-			this.company = null;
 		}
 		
 		 // setter
@@ -46,7 +46,6 @@ public class Executive
 		public void setTitleEn(String titleEn) { this.titleEn = titleEn; }
 		public void setIsBoardMember(Boolean HotelStars) { this.isBoardMember = isBoardMember; }
 		public void setexecutiveSlug(String executiveSlug) { this.executiveSlug = executiveSlug; }
-		public void setCompany(Company company) { this.company = company; }
 		
 		// getters
 		public String getFirstname() { return firstname; }
@@ -55,7 +54,6 @@ public class Executive
 		public String getTitleEn() { return titleEn; }
 		public Boolean getIsBoardMember() { return isBoardMember; }
 		public String getexecutiveSlug() { return executiveSlug; }
-		public Company getCompany() { return company; }
 
 		
 		  public int describeContents() {
@@ -69,9 +67,8 @@ public class Executive
 		    dest.writeString(lastname);
 		    dest.writeString(gender);
 		    dest.writeString(titleEn);
-		    dest.writeInt((Boolean) isBoardMember ? 1 : 0);
+		    dest.writeInt( isBoardMember ? 1 : 0);
 		    dest.writeString(executiveSlug);
-		    dest.writeValue(company);
 		  }
 		  
 		  public static final Parcelable.Creator<Executive> CREATOR = new Parcelable.Creator<Executive>() {
@@ -91,10 +88,9 @@ public class Executive
 			  firstname = in.readString();
 			  lastname = in.readString();
 			  gender = in.readString();
-			  gender = in.readString();
-			  isBoardMember = (Boolean) in.readValue( null );
+			  titleEn = in.readString();
+			  isBoardMember = (in.readInt() == 0) ? true : false;
 			  executiveSlug = in.readString();
-			  in.readValue(null);
 
 			}
 

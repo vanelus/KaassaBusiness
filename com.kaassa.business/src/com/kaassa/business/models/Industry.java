@@ -37,4 +37,26 @@ public class Industry implements Parcelable {
 	    dest.writeInt(count_companies);
 	}
 	
+	public Industry(Parcel in) 
+	{
+		name_e_n = in.readString();
+		name_f_r = in.readString();
+		slug = in.readString();
+		count_companies = in.readInt();
+
+	}
+	
+	public static final Parcelable.Creator<Industry> CREATOR = new Parcelable.Creator<Industry>() 
+	{
+		  @Override
+		  public Industry createFromParcel(Parcel source) {
+		    return new Industry(source);
+		  }
+
+		  @Override
+		  public Industry[] newArray(int size) {
+		    return new Industry[size];
+		  }
+	};
+	
 }

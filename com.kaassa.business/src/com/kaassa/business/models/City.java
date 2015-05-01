@@ -28,4 +28,24 @@ public class City implements Parcelable {
 	    dest.writeString(name);
 	    dest.writeString(slug);
 	}
+	
+	public City(Parcel in) 
+	{
+		name = in.readString();
+		slug = in.readString();
+
+	}
+	
+	public static final Parcelable.Creator<City> CREATOR = new Parcelable.Creator<City>() 
+	{
+		  @Override
+		  public City createFromParcel(Parcel source) {
+		    return new City(source);
+		  }
+
+		  @Override
+		  public City[] newArray(int size) {
+		    return new City[size];
+		  }
+	};
 }

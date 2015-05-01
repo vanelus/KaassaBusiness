@@ -1,25 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:layout_height="match_parent" >
     
-    >
-
-  <EditText
-        android:id="@+id/search"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" 
-        android:layout_marginTop="5sp"
-        android:layout_marginBottom="20sp"
-        android:textColor="@android:color/black"
-        >
- 
-        <requestFocus />
-  </EditText>
-  
   <TextView 
-    android:id="@+id/companies_list_results_count" 
+    android:id="@+id/executives_list_results_count" 
     android:textColor="@+android:color/black" 
     android:gravity="left" 
     android:padding="5.0sp" 
@@ -30,14 +15,15 @@
     />
   
   <ListView
-        android:id="@+id/companies_list"
+        android:id="@+id/executives_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="@android:color/black"
         android:dividerHeight="1sp"
         android:background="#FFFFFF"
-        android:layout_below="@+id/companies_list_results_count"
+        android:layout_below="@+id/executives_list_results_count"
          >
   </ListView>
-
+  
+  
 </RelativeLayout>

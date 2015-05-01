@@ -57,13 +57,14 @@ public class CompanyAdapter extends BaseAdapter {
 		Company company = companiesList.get(index);
 		
 		TextView company_name = (TextView)view.findViewById(R.id.company_name);
-		company_name.setText(company.getName());
-		TextView location_city_and_country_name = (TextView)view.findViewById(R.id.location_city_and_country_name);
-		location_city_and_country_name.setText(company.getLocation().getCity().getName() + " - " + company.getLocation().getCountry().getNameEn());
 		TextView industry_name_en = (TextView)view.findViewById(R.id.industry_name_en);
-		industry_name_en.setText(company.getIndustry().getNameEn());
+		TextView location_city_and_country_name = (TextView)view.findViewById(R.id.location_city_and_country_name);
 		TextView count_executives = (TextView)view.findViewById(R.id.count_executives);
-		count_executives.setText(String.valueOf(company.getCountExecutives()));
+		
+		company_name.setText(company.getName());
+		location_city_and_country_name.setText(company.getLocation().getCity().getName() + " - " + company.getLocation().getAddress() + "(" + company.getLocation().getCountry().getNameEn() + ")");		
+		industry_name_en.setText(company.getIndustry().getNameEn());
+		count_executives.setText(String.valueOf(company.getCountExecutives()) + " executives");
 
 		return view;
 		
