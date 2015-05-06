@@ -3,6 +3,7 @@ package com.kaassa.business.controllers;
 import com.kaassa.business.models.Company;
 import com.kaassa.business.views.CompanyDetail;
 import com.kaassa.business.views.CompanyDetail2;
+import com.kaassa.business.views.CompanyDetail3;
 import com.kaassa.business.views.CompanyList;
 import com.kaassa.business.views.ExecutiveList;
 import com.kaassa.business.views.HomePage;
@@ -30,7 +31,7 @@ public class ManageViewTransitions {
 		// TODO Auto-generated method stub
 		
 		
-	    Intent intent = new Intent(context,CompanyDetail.class);
+	    Intent intent = new Intent(context,CompanyDetail3.class);
 	    
 	    intent.putExtra("com.kaassa.business.controllers.company",company);
 	    
@@ -41,7 +42,7 @@ public class ManageViewTransitions {
 		// TODO Auto-generated method stub
 		
 		
-	    Intent intent = new Intent(context,CompanyDetail2.class);
+	    Intent intent = new Intent(context,CompanyDetail.class);
 	    
 	    intent.putExtra("com.kaassa.business.controllers.company",company);
 	    

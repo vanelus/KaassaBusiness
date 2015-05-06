@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 public class CompanyDetail extends FragmentActivity{
 	
-
 	 
 	 @Override
 	 protected void onCreate(Bundle savedInstanceState) 
@@ -29,7 +28,7 @@ public class CompanyDetail extends FragmentActivity{
             // If executivefragment exist
 
             // Call a method in the executivefragment to update its list
-        	executivefragment.setListExecutive(selectedCompany.getExecutives());
+        	//executivefragment.setListExecutive(selectedCompany.getExecutives());
         }
         
         if (subsidiaryfragment != null) {
