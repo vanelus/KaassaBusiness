@@ -1,15 +1,12 @@
 package com.kaassa.business.controllers;
 
-import com.kaassa.business.models.Company;
-import com.kaassa.business.views.CompanyDetail;
-import com.kaassa.business.views.CompanyDetail2;
-import com.kaassa.business.views.CompanyDetail3;
-import com.kaassa.business.views.CompanyList;
-import com.kaassa.business.views.ExecutiveList;
-import com.kaassa.business.views.HomePage;
-
 import android.content.Context;
 import android.content.Intent;
+
+import com.kaassa.business.models.Company;
+import com.kaassa.business.views.CompanyDetail;
+import com.kaassa.business.views.CompanyList;
+import com.kaassa.business.views.ExecutiveList;
 
 public class ManageViewTransitions {
 
@@ -31,7 +28,7 @@ public class ManageViewTransitions {
 		// TODO Auto-generated method stub
 		
 		
-	    Intent intent = new Intent(context,CompanyDetail3.class);
+	    Intent intent = new Intent(context,CompanyDetail.class);
 	    
 	    intent.putExtra("com.kaassa.business.controllers.company",company);
 	    

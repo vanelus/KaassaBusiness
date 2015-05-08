@@ -37,17 +37,6 @@
             android:label="@string/activity_companydetail_name"
 			>
         </activity>
-        <activity
-            android:name="com.kaassa.business.views.CompanyDetail2"
-            android:label="@string/activity_companydetail_name"
-			>
-        </activity>
-        
-        <activity
-            android:name="com.kaassa.business.views.CompanyDetail3"
-            android:label="@string/activity_companydetail_name"
-			>
-        </activity>
     </application>
 
 </manifest>
