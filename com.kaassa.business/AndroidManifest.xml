@@ -24,7 +24,9 @@
         
         <activity
             android:name="com.kaassa.business.views.CompanyList"
-            android:label="@string/activity_companylist_name" >
+            android:label="@string/activity_companylist_name" 
+            android:windowSoftInputMode="stateHidden"
+            >
         </activity>
         
         <activity

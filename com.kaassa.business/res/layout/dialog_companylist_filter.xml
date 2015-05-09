@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="#FFFFFF">
+    
+	<TextView 
+	    android:id="@+id/companylist_filter_industry_textview"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:fontFamily="Helvetica Neue, Helvetica, Arial, sans-serif"
+		android:textStyle="bold"
+		android:textSize="15sp"
+		android:textColor="@android:color/black"
+		android:padding="10dp"
+		android:text="@string/companylist_filter_industry_textview"
+	    />
+	<Spinner
+	    android:id="@+id/companylist_filter_industry_spinner"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_toRightOf="@+id/companylist_filter_industry_textview"
+	    android:padding="10dp"
+	    />
+	
+	<TextView 
+	    android:id="@+id/companylist_filter_country_textview"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:fontFamily="Helvetica Neue, Helvetica, Arial, sans-serif"
+		android:textStyle="bold"
+		android:textSize="15sp"
+		android:textColor="@android:color/black"
+		android:padding="10dp"
+		android:text="@string/companylist_filter_country_textview"
+	    android:layout_below="@+id/companylist_filter_industry_textview"
+	    />
+	
+	<Spinner
+	    android:id="@+id/companylist_filter_country_spinner"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:padding="10dp"
+	    android:layout_below="@+id/companylist_filter_industry_textview"
+	    android:layout_toRightOf="@+id/companylist_filter_country_textview" />
+	
+	 <Button
+        android:id="@+id/companylist_filter_submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="Helvetica Neue, Helvetica, Arial, sans-serif"
+		android:textStyle="bold"
+		android:textSize="15sp"
+		android:textColor="@android:color/black"
+		android:padding="10dp"
+		android:text="@string/companylist_filter_submit_button"
+		android:layout_below="@+id/companylist_filter_country_textview"
+        />
+      	     
+      	     
+     <Button
+        android:id="@+id/companylist_filter_cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="Helvetica Neue, Helvetica, Arial, sans-serif"
+		android:textStyle="bold"
+		android:textSize="15sp"
+		android:textColor="@android:color/black"
+		android:padding="10dp"
+		android:text="@string/companylist_filter_cancel_button"
+		android:layout_below="@+id/companylist_filter_country_textview"
+		android:layout_toRightOf="@+id/companylist_filter_submit_button"
+		
+        />
+
+
+</RelativeLayout>

@@ -45,6 +45,17 @@ public class ManageViewTransitions {
 	    
 	    context.startActivity(intent);
 	}
+
+	public void SubsidiarylistToCompanydetail(Context context, Company company) {
+		// TODO Auto-generated method stub
+		
+	    Intent intent = new Intent(context,CompanyDetail.class);
+	    
+	    intent.putExtra("com.kaassa.business.controllers.company",company);
+	    
+	    context.startActivity(intent);
+		
+	}
 	
 	
 	

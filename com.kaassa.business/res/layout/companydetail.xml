@@ -1,9 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-    
-            <TextView android:id="@+id/company_name"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" 
+        android:padding="4dip"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent" 
+        android:layout_height="match_parent">
+
+             <TextView android:id="@+id/company_name"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_alignParentTop="true"
@@ -61,24 +63,35 @@
 			android:textSize="12sp"
 			android:textColor="@android:color/black"
 			 />
-
-			<LinearLayout 
-			    android:orientation="horizontal"
-			    android:layout_width="fill_parent"
-			    android:layout_height="fill_parent"
-			    android:layout_below="@+id/slogan">
-			
-			    <fragment android:name="com.kaassa.business.views.ExecutiveFragment"
-			              android:id="@+id/executivefragment"
-			              android:layout_weight="1"
-			              android:layout_width="0dp"
-			              android:layout_height="match_parent" />
-			
-			    <fragment android:name="com.kaassa.business.views.SubsidiaryFragment"
-			              android:id="@+id/subsidiaryfragment"
-			              android:layout_weight="1"
-			              android:layout_width="0dp"
-			              android:layout_height="match_parent" />
-			
-			</LinearLayout>
-</RelativeLayout>
+    
+		    <android.support.v4.view.ViewPager
+		            android:id="@+id/pager"
+		            android:layout_width="match_parent"
+		            android:layout_height="0px"
+		            android:layout_weight="1"
+		            
+		            >
+		    </android.support.v4.view.ViewPager>
+		
+		    <LinearLayout 
+		        	android:orientation="horizontal"
+		            android:gravity="center" 
+		            android:measureWithLargestChild="true"
+		            android:layout_width="match_parent" 
+		            android:layout_height="wrap_content"
+		            android:layout_weight="0">
+		            
+		        <Button 
+		            android:id="@+id/goto_first"
+		            android:layout_width="wrap_content" 
+		            android:layout_height="wrap_content"
+		            android:text="Executives List">
+		        </Button>
+		        <Button 
+		            android:id="@+id/goto_last"
+		            android:layout_width="wrap_content" 
+		            android:layout_height="wrap_content"
+		            android:text="Subsidiaries List">
+		        </Button>
+		    </LinearLayout>
+</LinearLayout>

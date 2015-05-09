@@ -46,6 +46,9 @@ public class CallKaassaBusinessWS
 	public void getJsonData(String searchedCompany, Context myContext)
 	{
 		
+			//Clear the companies list
+			companiesList.clear();
+		
 			AssetManager mngr = myContext.getAssets();
 			
 		    //get the json text -in asset rep

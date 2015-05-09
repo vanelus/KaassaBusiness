@@ -43,7 +43,7 @@ public class CompanyDetail extends FragmentActivity implements OnClickListener {
         selectedCompany = getIntent().getParcelableExtra("com.kaassa.business.controllers.company");
         
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.companydetail3);
+        setContentView(R.layout.companydetail);
         mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
         mAdapter.setSelectedCompany(selectedCompany);
         mPager = (ViewPager)findViewById(R.id.pager);
