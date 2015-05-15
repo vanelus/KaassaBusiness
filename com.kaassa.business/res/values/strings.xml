@@ -1,7 +1,7 @@
 <resources>
 
     <string name="app_name">KaassaBusiness</string>
-    <string name="activity_homepage_name">Home</string>
+    <string name="activity_homepage_name">KaassaBusiness</string>
     <string name="activity_homepage_radiobutton_company">Companies</string>
     <string name="activity_homepage_radiobutton_executive">Executives</string>
     <string name="activity_homepage_btn_search_company">Search</string>

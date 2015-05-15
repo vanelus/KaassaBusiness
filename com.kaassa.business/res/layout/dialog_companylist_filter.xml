@@ -42,7 +42,8 @@
 	    android:layout_height="wrap_content"
 	    android:padding="10dp"
 	    android:layout_below="@+id/companylist_filter_industry_textview"
-	    android:layout_toRightOf="@+id/companylist_filter_country_textview" />
+	    android:layout_toRightOf="@+id/companylist_filter_country_textview"
+	     />
 	
 	 <Button
         android:id="@+id/companylist_filter_submit_button"

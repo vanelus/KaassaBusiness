@@ -100,14 +100,12 @@ public class Company implements Parcelable {
 		    dest.writeParcelable(contact, flags);
 		    dest.writeInt(foundation);
 		    dest.writeString(slogan);
-		    
 		    dest.writeTypedList(pictures);
 		    dest.writeParcelable(industry, flags);
 		    dest.writeTypedList(subsidiaries);
 		    dest.writeTypedList(executives);
 		    dest.writeInt(countExecutives);
-
-
+		    dest.writeString(parentCompanySlug);
 		  }
 		  
 		  public static final Parcelable.Creator<Company> CREATOR = new Parcelable.Creator<Company>() {
@@ -128,13 +126,13 @@ public class Company implements Parcelable {
 			  location = in.readParcelable(Location.class.getClassLoader());
 			  contact = in.readParcelable(Contact.class.getClassLoader());
 			  foundation = in.readInt();
-			  slogan = in.readString();
-		      
+			  slogan = in.readString();      
 			  in.readTypedList(pictures, Picture.CREATOR); 
 			  industry = in.readParcelable(Industry.class.getClassLoader());
 			  in.readTypedList(subsidiaries, Company.CREATOR);
 			  in.readTypedList(executives, Executive.CREATOR);
 			  countExecutives = in.readInt();
+			  parentCompanySlug = in.readString();
 
 			}
 

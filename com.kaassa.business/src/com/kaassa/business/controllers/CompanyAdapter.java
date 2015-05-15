@@ -33,11 +33,13 @@ public class CompanyAdapter extends BaseAdapter {
 		CallKaassaBusinessWS callKaassaWS = new CallKaassaBusinessWS();
 		companiesList = callKaassaWS.getCompaniesList();
 		
-		
+		// Set countries list from companies result set
 		setCountriesList(companiesList);
+		// Set industries list from companies result set
 		setIndustriesList(companiesList);
 		
 		neverFilteredcompanies = companiesList;
+		
 	}
 	
 	
@@ -126,6 +128,16 @@ public class CompanyAdapter extends BaseAdapter {
 	            	filteredCompanies.add(comp);
 	        }
 		}
+		
+		 // case 0 0 
+		if (industry.equals("") && country.equals(""))
+		{
+	        for (int i = 0; i < neverFilteredcompanies.size(); i++) 
+	        {
+	        	Company comp = neverFilteredcompanies.get(i);
+	            filteredCompanies.add(comp);
+	        }
+		}
 
 		companiesList = filteredCompanies;
 		
@@ -166,6 +178,8 @@ public class CompanyAdapter extends BaseAdapter {
 	public void setIndustriesList(List<Company> companiesList)
 	{
 		industriesList.clear();
+		//add default value
+		industriesList.add("");
 		
         for (int i = 0; i < companiesList.size(); i++) 
         {
@@ -181,6 +195,8 @@ public class CompanyAdapter extends BaseAdapter {
 	public void setCountriesList(List<Company> companiesList)
 	{
 		countriesList.clear();
+		//add default value
+		countriesList.add("");
 		
         for (int i = 0; i < companiesList.size(); i++) 
         {
@@ -199,7 +215,12 @@ public class CompanyAdapter extends BaseAdapter {
         	for (int j = 0; j < companiesList.get(i).getSubsidiaries().size(); j++)
         	{
 	        	if (companiesList.get(i).getSubsidiaries().get(j).getName().equals(companyName))
+	        	{
 	        		company = companiesList.get(i).getSubsidiaries().get(j);
+	        		
+	        		//set parent slug on subsidiary
+	        		company.setParentCompanySlug(companiesList.get(i).getSlug());
+	        	}
         	}
         } 
 		
@@ -207,5 +228,23 @@ public class CompanyAdapter extends BaseAdapter {
 		
 	}
 	
+	public Company getCompanyBySlug(String companySlug)
+	{
+		Company company = null;
+		
+        for (int i = 0; i < companiesList.size(); i++) 
+        {
+        	if (companiesList.get(i).getSlug().equals(companySlug))
+        	{
+        		company = companiesList.get(i);
+        	}
+        } 
+		
+		return company;
+		
+	}
+	
+	
+		
 
 }

@@ -69,11 +69,12 @@ public class SubsidiaryFragment extends ListFragment {
  				if (companyName != null)
  				{
  	 				Company company = companyAdapter.getCompanyByName(companyName);
+ 	 				
 
  	 				// Call the Transition method From the current view to "Companies List View"
  	 				manageView.SubsidiarylistToCompanydetail(v.getContext(), company);
  	 	    	    
- 					
+ 	 				
  				}
 
    

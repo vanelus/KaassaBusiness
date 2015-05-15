@@ -1,7 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical" 
         android:padding="4dip"
-        android:gravity="center_horizontal"
         android:layout_width="match_parent" 
         android:layout_height="match_parent">
 
@@ -62,6 +61,17 @@
 			android:layout_below="@+id/contact_phone"
 			android:textSize="12sp"
 			android:textColor="@android:color/black"
+			 />
+		    
+		    <TextView android:id="@+id/parent_slug"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/slogan"
+			android:textSize="12sp"
+			android:textColor="@android:color/black"
+			android:autoLink="all"
+			android:clickable="true"
+			
 			 />
     
 		    <android.support.v4.view.ViewPager

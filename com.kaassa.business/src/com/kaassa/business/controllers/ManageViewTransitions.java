@@ -35,6 +35,7 @@ public class ManageViewTransitions {
 	    context.startActivity(intent);
 	}
 	
+	
 	public void ExecutivelistToCompanydetail(Context context, Company company) {
 		// TODO Auto-generated method stub
 		
