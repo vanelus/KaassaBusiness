@@ -14,10 +14,17 @@
     <string name="AboutKaassa_dialog_title">About Kaassa</string>
     <string name="AboutKaassa_dialog_ok">OK</string>
     <string name="menu_company_filter_text">Company filter</string>
+    <string name="menu_homepage_contactus">Leave us a message</string>
     <string name="companylist_filter_industry_textview">Industry</string>
     <string name="companylist_filter_country_textview">Country</string>
     <string name="companylist_filter_submit_button">Submit</string>
-    <string name="companylist_filter_cancel_button">Cancel</string>
+    <string name="companylist_filter_cancel_button">Cancel</string>    
+    <string name="contact_us_name_textview">Name* 	</string>
+    <string name="contact_us_email_textview">Email* </string>
+    <string name="contact_us_subject_textview">Subject* </string>
+    <string name="contact_us_message_textview">Message* </string>
+    <string name="contact_us_home_button">Home</string>
+    <string name="contact_us_send_button">Send</string>
     
 
 </resources>

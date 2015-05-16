@@ -2,6 +2,116 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
+   
+       	<TextView android:id="@+id/contact_us_name_textview"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/company_name"
+		android:textSize="12sp"
+		android:layout_marginTop="5sp"
+		android:textColor="@android:color/black"
+		android:text="@string/contact_us_name_textview"
+		 /> 
+		 
+       	<EditText
+        android:id="@+id/contact_us_name_edittext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:layout_marginTop="5sp"
+        android:textColor="@android:color/black"
+        android:layout_toRightOf="@+id/contact_us_name_textview"
+
+        ></EditText>
     
+       	<TextView android:id="@+id/contact_us_email_textview"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textSize="12sp"
+		android:layout_marginTop="5sp"
+		android:textColor="@android:color/black"
+		android:layout_toRightOf="@+id/contact_us_name_edittext"
+		android:text="@string/contact_us_email_textview"		
+		
+		 /> 
+		
+       	<EditText
+        android:id="@+id/contact_us_email_edittext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:layout_marginTop="5sp"
+        android:textColor="@android:color/black"
+		android:layout_toRightOf="@+id/contact_us_email_textview"
+        ></EditText>
+       	
+       	<TextView android:id="@+id/contact_us_subject_textview"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/contact_us_name_textview"
+		android:textSize="12sp"
+		android:layout_marginTop="5sp"
+		android:textColor="@android:color/black"
+		android:text="@string/contact_us_subject_textview"
+		 /> 
+		 
+       	<EditText
+        android:id="@+id/contact_us_subject_edittext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:layout_marginTop="5sp"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/contact_us_name_textview"
+		android:layout_toRightOf="@+id/contact_us_subject_textview"
+
+        ></EditText>
+		 
+        <TextView android:id="@+id/contact_us_message_textview"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/contact_us_subject_textview"
+		android:textSize="12sp"
+		android:layout_marginTop="5sp"
+		android:textColor="@android:color/black"
+		android:text="@string/contact_us_message_textview"
+		 /> 
+		
+		<EditText
+        android:id="@+id/contact_us_message_edittext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:layout_marginTop="5sp"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/contact_us_subject_textview"
+		android:layout_toRightOf="@+id/contact_us_message_textview"
+        ></EditText>
+		
+		      	     
+     	<Button
+        android:id="@+id/contact_us_home_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="Helvetica Neue, Helvetica, Arial, sans-serif"
+		android:textStyle="bold"
+		android:textSize="15sp"
+		android:textColor="@android:color/black"
+		android:padding="10dp"
+		android:text="@string/contact_us_home_button"
+		android:layout_below="@+id/contact_us_message_textview"
+		/>
+     	
+		<Button
+        android:id="@+id/contact_us_send_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="Helvetica Neue, Helvetica, Arial, sans-serif"
+		android:textStyle="bold"
+		android:textSize="15sp"
+		android:textColor="@android:color/black"
+		android:padding="10dp"
+		android:text="@string/contact_us_send_button"
+		android:layout_below="@+id/contact_us_message_textview"
+		android:layout_toRightOf="@+id/contact_us_home_button"
+		
+        />
+      	     
 
 </RelativeLayout>
