@@ -10,7 +10,7 @@
     <string name="activity_companydetail_name">Company Detail</string>
     <string name="action_settings">settings</string>
     <string name="action_leaveusmessage">leave us a message</string>
-    <string name="AboutKaassa_dialog_message">About Kaassa</string>
+    <string name="AboutKaassa_dialog_message">Surveillance in sub-saharan Africa for tourists, investors and students.\n\n- hotels with photos, available services and minimum cost of accommodation\n\n- companies and executives behind Africa\'s economic growth\n\n- secondary and advanced schools with high reputation and trainings provided</string>
     <string name="AboutKaassa_dialog_title">About Kaassa</string>
     <string name="AboutKaassa_dialog_ok">OK</string>
     <string name="menu_company_filter_text">Company filter</string>
@@ -19,12 +19,13 @@
     <string name="companylist_filter_country_textview">Country</string>
     <string name="companylist_filter_submit_button">Submit</string>
     <string name="companylist_filter_cancel_button">Cancel</string>    
-    <string name="contact_us_name_textview">Name* 	</string>
+    <string name="contact_us_name_textview">Name* </string>
     <string name="contact_us_email_textview">Email* </string>
     <string name="contact_us_subject_textview">Subject* </string>
     <string name="contact_us_message_textview">Message* </string>
     <string name="contact_us_home_button">Home</string>
     <string name="contact_us_send_button">Send</string>
     
+        
 
 </resources>

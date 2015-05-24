@@ -3,9 +3,8 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk
-        android:minSdkVersion="11"
-        android:targetSdkVersion="20" />
+	<uses-sdk android:minSdkVersion="14"
+	    	android:targetSdkVersion="21" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +14,8 @@
         
         <activity
 			android:name="com.kaassa.business.views.HomePage"
-            android:label="@string/activity_homepage_name">
+            android:label="@string/activity_homepage_name"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -26,19 +26,37 @@
             android:name="com.kaassa.business.views.CompanyList"
             android:label="@string/activity_companylist_name" 
             android:windowSoftInputMode="stateHidden"
-            >
+            android:parentActivityName="com.kaassa.business.views.HomePage" >
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+	        <meta-data
+	            android:name="android.support.PARENT_ACTIVITY"
+	            android:value="com.kaassa.business.views.HomePage" />
         </activity>
         
         <activity
             android:name="com.kaassa.business.views.ExecutiveList"
-            android:label="@string/activity_executivelist_name" >
+            android:label="@string/activity_executivelist_name" 
+            android:parentActivityName="com.kaassa.business.views.HomePage" >
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+	        <meta-data
+	            android:name="android.support.PARENT_ACTIVITY"
+	            android:value="com.kaassa.business.views.HomePage" />
+            
         </activity>
         
         <activity
             android:name="com.kaassa.business.views.CompanyDetail"
             android:label="@string/activity_companydetail_name"
+            android:parentActivityName="com.kaassa.business.views.CompanyList"
 			>
+	        <!-- Parent activity meta-data to support 4.0 and lower -->
+	        <meta-data
+	            android:name="android.support.PARENT_ACTIVITY"
+	            android:value="com.kaassa.business.views.CompanyList" />
         </activity>
+        
     </application>
+    
+    
 
 </manifest>

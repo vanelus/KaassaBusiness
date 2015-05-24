@@ -33,6 +33,9 @@ public class CompanyList extends Activity implements OnClickListener {
 	 CompanyAdapter companyAdapter;
 	 //search filter on company page. based on company name
 	 EditText editsearch;
+	 
+	//Indicator: Display the current companies number
+	 TextView companies_list_results_count;
 	 ManageViewTransitions manageView = new ManageViewTransitions();
 	
 	 Dialog dialog;
@@ -52,7 +55,7 @@ public class CompanyList extends Activity implements OnClickListener {
 	        companies_list.setAdapter(companyAdapter);
 	        
 	        //Set company list results count
-	        TextView companies_list_results_count = (TextView)findViewById(R.id.companies_list_results_count);
+	        companies_list_results_count = (TextView)findViewById(R.id.companies_list_results_count);
 	        companies_list_results_count.setText("Results : " + companies_list.getCount() + " companies...");
 	        
 	        
@@ -77,6 +80,9 @@ public class CompanyList extends Activity implements OnClickListener {
 
 			// Locate the EditText in listview_main.xml
 			editsearch = (EditText) findViewById(R.id.search);
+			
+			// Locate the ResultSet Textview in listview_main.xml
+			companies_list_results_count = (TextView) findViewById(R.id.companies_list_results_count);
 	 
 			// Capture Text in EditText
 			editsearch.addTextChangedListener(new TextWatcher() {
@@ -191,6 +197,7 @@ public class CompanyList extends Activity implements OnClickListener {
 				
 				case R.id.companylist_filter_submit_button:
 					callCompaniesFilter();
+					setCompResultNumber();
 					break;
 			}
 							
@@ -221,6 +228,15 @@ public class CompanyList extends Activity implements OnClickListener {
 	        // Close dialog
 			dialog.dismiss();
 			return null;
+		}
+		
+		private OnClickListener setCompResultNumber() {
+
+        	// Get Companies Results Number
+            if (companies_list_results_count != null)
+            	companies_list_results_count.setText("Results : " + String.valueOf(companyAdapter.getCount()) + " companies...");
+
+            return null;
 		}
 
 	

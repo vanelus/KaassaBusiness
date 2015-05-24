@@ -30,7 +30,7 @@ public class CallKaassaBusinessWS
 {
 	
 	//Instantiate Companies collection
-	//Creating list object for storing the parsed companie
+	//Creating list object for storing the parsed companies
 	public static List<Company> companiesList = new ArrayList<Company>();
 	
 	
@@ -100,7 +100,6 @@ public class CallKaassaBusinessWS
                 	currentCompany = array.getJSONObject(i);
                 	Company company = gson.fromJson(currentCompany.toString(), Company.class);
                 	companiesList.add(company);
-
                 }
             }
 	        

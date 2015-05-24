@@ -12,6 +12,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 public class TabsPagerAdapter extends FragmentPagerAdapter {
 
 	public Company selectedCompany;
+	private String tabTitles[] = new String[] { "Executives", "Subsidiaries"};
 	
 	
 	public TabsPagerAdapter(FragmentManager fm) {
@@ -48,6 +49,11 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 		// TODO Auto-generated method stub
 		return 2;
 	}
+	
+    public CharSequence getPageTitle(int position) {
+        // Generate title based on item position
+        return tabTitles[position];
+    }
 	
     // Returns the selected Company
     public void setSelectedCompany(Company company) {

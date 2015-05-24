@@ -1,30 +1,22 @@
 package com.kaassa.business.views;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.kaassa.business.R;
-import com.kaassa.business.controllers.CallKaassaBusinessWS;
-import com.kaassa.business.controllers.ManageViewTransitions;
-import com.kaassa.business.models.Company;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
+
+import com.kaassa.business.R;
+import com.kaassa.business.controllers.CallKaassaBusinessWS;
+import com.kaassa.business.controllers.ManageViewTransitions;
 
 public class HomePage extends Activity implements OnClickListener 
 {
@@ -44,6 +36,7 @@ public class HomePage extends Activity implements OnClickListener
 		search_company = (Button)findViewById(R.id.btn_search_company);
 		
 		search_company.setOnClickListener(this);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 		
 	}
 
@@ -135,7 +128,7 @@ public class HomePage extends Activity implements OnClickListener
 		dialog = new Dialog(this);
 		
         // Include dialog.xml file
-        dialog.setContentView(R.layout.dialog_companylist_filter);
+        dialog.setContentView(R.layout.dialog_sendmessage);
         
         // Set dialog title
         dialog.setTitle(R.string.menu_homepage_contactus);
@@ -151,7 +144,6 @@ public class HomePage extends Activity implements OnClickListener
         // Display the dialog filter
         dialog.show();        
         
-
         OnClickListener dialogContactus = new OnClickListener() {
   	       @Override
   	       public void onClick(View v) 
