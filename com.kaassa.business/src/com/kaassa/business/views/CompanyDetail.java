@@ -31,7 +31,7 @@ public class CompanyDetail extends FragmentActivity
 	    ViewPager mPager;
 	    
 	    ManageViewTransitions manageView = new ManageViewTransitions();
-	    CompanyAdapter companyAdapter = new CompanyAdapter();
+	    CompanyAdapter companyAdapter;
 	    
 		List<String> executivesName = new ArrayList<String>();
 		List<String> subsidiariesName = new ArrayList<String>();
@@ -84,7 +84,12 @@ public class CompanyDetail extends FragmentActivity
     		contact_email.setText("Email: " + selectedCompany.getContact().getEmail());
     		contact_phone.setText("Phone: " + selectedCompany.getContact().getPhoneOne());
     		slogan.setText("Slogan: " + selectedCompany.getslogan());
-        	parent_slug.setText("Parent Company: " + selectedCompany.getParentCompanySlug());
+    		
+    		//hide "Parent Company: " TextView for Parent Company
+    		if (!selectedCompany.getParentCompanySlug().equals(""))
+    			parent_slug.setText("Parent Company: " + selectedCompany.getParentCompanySlug());
+    		else
+    			parent_slug.setVisibility(View.INVISIBLE);
 
     		
     	    // Listener for buttons/textview

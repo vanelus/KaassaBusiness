@@ -1,6 +1,10 @@
 package com.kaassa.business.views;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.kaassa.business.R;
+import com.kaassa.business.controllers.CallKaassaBusinessWS;
 import com.kaassa.business.controllers.ExecutiveAdapter;
 import com.kaassa.business.controllers.ManageViewTransitions;
 import com.kaassa.business.models.Company;
@@ -21,16 +25,22 @@ import android.widget.TextView;
 public class ExecutiveList extends Activity {
 
 	 ExecutiveAdapter executiveAdapter;
+	 private int LAYOUT_TYPE = 1;
 
 	 ManageViewTransitions manageView = new ManageViewTransitions();
+
+	 private List<Company> companiesList = new ArrayList<Company>();
 	
 	 public void onCreate(Bundle savedInstanceState)
 	    {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.executivepage);
 	        
+			CallKaassaBusinessWS callKaassaWS = new CallKaassaBusinessWS();
+			companiesList = callKaassaWS.getCompaniesList();
+	        
 	        ListView executives_list = (ListView)findViewById(R.id.executives_list);
-	        executiveAdapter = new ExecutiveAdapter();
+	        executiveAdapter = new ExecutiveAdapter((ArrayList<Company>) companiesList,LAYOUT_TYPE);
 	        executives_list.setAdapter(executiveAdapter);
 	        
 	        //Set executive list results count

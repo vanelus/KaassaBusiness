@@ -21,6 +21,7 @@ import android.widget.TextView;
  */
 public class CompanyAdapter extends BaseAdapter {
 
+	private int layoutType = 1;
 	
 	private List<Company> companiesList = new ArrayList<Company>();
 	public List<String> industriesList = new ArrayList<String>();
@@ -28,10 +29,12 @@ public class CompanyAdapter extends BaseAdapter {
 	private List<Company> neverFilteredcompanies = new ArrayList<Company>();
 
 	// Get Companies list
-	public CompanyAdapter() {
+	public CompanyAdapter(ArrayList<Company> companies, int lType) {
 		
-		CallKaassaBusinessWS callKaassaWS = new CallKaassaBusinessWS();
-		companiesList = callKaassaWS.getCompaniesList();
+		companiesList = companies;
+		
+		// Get the Company List Layout Type
+		layoutType = lType;
 		
 		// Set countries list from companies result set
 		setCountriesList(companiesList);
@@ -41,7 +44,6 @@ public class CompanyAdapter extends BaseAdapter {
 		neverFilteredcompanies = companiesList;
 		
 	}
-	
 	
 	@Override
 	public int getCount() {
@@ -65,22 +67,41 @@ public class CompanyAdapter extends BaseAdapter {
 	public View getView(int index, View view, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		
-		if (view == null) {
-			LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-			view = inflater.inflate(R.layout.companyitemview, parent, false);
+		if (layoutType == 1)
+		{
+			if (view == null) {
+				LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+				view = inflater.inflate(R.layout.companyitemview, parent, false);
+			}
+	
+			Company company = companiesList.get(index);
+			
+			TextView company_name = (TextView)view.findViewById(R.id.company_name);
+			TextView industry_name_en = (TextView)view.findViewById(R.id.industry_name_en);
+			TextView location_city_and_country_name = (TextView)view.findViewById(R.id.location_city_and_country_name);
+			TextView count_executives = (TextView)view.findViewById(R.id.count_executives);
+			
+			company_name.setText(company.getName());
+			location_city_and_country_name.setText(company.getLocation().getCity().getName() + " - " + company.getLocation().getAddress() + "(" + company.getLocation().getCountry().getNameEn() + ")");		
+			industry_name_en.setText(company.getIndustry().getNameEn());
+			count_executives.setText(String.valueOf(company.getCountExecutives()) + " executives");
 		}
-
-		Company company = companiesList.get(index);
 		
-		TextView company_name = (TextView)view.findViewById(R.id.company_name);
-		TextView industry_name_en = (TextView)view.findViewById(R.id.industry_name_en);
-		TextView location_city_and_country_name = (TextView)view.findViewById(R.id.location_city_and_country_name);
-		TextView count_executives = (TextView)view.findViewById(R.id.count_executives);
-		
-		company_name.setText(company.getName());
-		location_city_and_country_name.setText(company.getLocation().getCity().getName() + " - " + company.getLocation().getAddress() + "(" + company.getLocation().getCountry().getNameEn() + ")");		
-		industry_name_en.setText(company.getIndustry().getNameEn());
-		count_executives.setText(String.valueOf(company.getCountExecutives()) + " executives");
+		if (layoutType == 2)
+		{
+			if (view == null) {
+				LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+				view = inflater.inflate(R.layout.companyitemview2, parent, false);
+			}
+	
+			Company company = companiesList.get(index);
+			
+			TextView company_name = (TextView)view.findViewById(R.id.company_name);
+			TextView industry_name_en = (TextView)view.findViewById(R.id.industry_name_en);
+			
+			company_name.setText(company.getName());
+			industry_name_en.setText(company.getIndustry().getNameEn());
+		}
 
 		return view;
 		
@@ -212,15 +233,12 @@ public class CompanyAdapter extends BaseAdapter {
 		
         for (int i = 0; i < companiesList.size(); i++) 
         {
-        	for (int j = 0; j < companiesList.get(i).getSubsidiaries().size(); j++)
+        	if (companiesList.get(i).getName().equals(companyName))
         	{
-	        	if (companiesList.get(i).getSubsidiaries().get(j).getName().equals(companyName))
-	        	{
-	        		company = companiesList.get(i).getSubsidiaries().get(j);
-	        		
-	        		//set parent slug on subsidiary
-	        		company.setParentCompanySlug(companiesList.get(i).getSlug());
-	        	}
+        		company = companiesList.get(i);
+        		
+        		//set parent slug on subsidiary
+        		company.setParentCompanySlug(companiesList.get(i).getParentCompanySlug());
         	}
         } 
 		

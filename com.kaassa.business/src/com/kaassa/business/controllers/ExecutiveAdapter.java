@@ -15,13 +15,14 @@ import android.widget.TextView;
 
 public class ExecutiveAdapter extends BaseAdapter {
 
+	private int layoutType = 1;
 	private List<Company> companiesList = new ArrayList<Company>();
 
 	// Get Companies list
-	public ExecutiveAdapter() {
+	public ExecutiveAdapter(ArrayList<Company> companies, int lType) {
 		
-		CallKaassaBusinessWS callKaassaWS = new CallKaassaBusinessWS();
-		companiesList = callKaassaWS.getCompaniesList();
+		lType = layoutType;
+		companiesList = companies;
 	}
 	
 	@Override
@@ -46,26 +47,51 @@ public class ExecutiveAdapter extends BaseAdapter {
 	public View getView(int index, View view, ViewGroup parent) {
 		// TODO Auto-generated method stub
 
-
-		if (view == null) {
-			LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-			view = inflater.inflate(R.layout.executiveitemview, parent, false);
-		}
-
-		Company company = companiesList.get(index);
-		
-		TextView executive_firstandlast_name = (TextView)view.findViewById(R.id.executive_firstandlast_name);
-		TextView executive_function = (TextView)view.findViewById(R.id.executive_function);
-
-		//check if an executive exists in a company?
-		if (company.getExecutives().size() > 0)
+		if (layoutType == 1)
 		{
-			if (company.getExecutives().get(0).getGender().equals("male"))
-				executive_firstandlast_name.setText("Mr. " + company.getExecutives().get(0).getFirstname() + " " + company.getExecutives().get(0).getLastname());
-			else
-				executive_firstandlast_name.setText("Ms. " + company.getExecutives().get(0).getFirstname() + " " + company.getExecutives().get(0).getLastname());
-			executive_function.setText(company.getExecutives().get(0).getTitleEn() + " " + company.getName() + " (" + company.getLocation().getCountry().getNameEn() + ")" );		
+			if (view == null) {
+				LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+				view = inflater.inflate(R.layout.executiveitemview, parent, false);
+			}
+	
+			Company company = companiesList.get(index);
+			
+			TextView executive_firstandlast_name = (TextView)view.findViewById(R.id.executive_firstandlast_name);
+			TextView executive_function = (TextView)view.findViewById(R.id.executive_function);
+	
+			//check if an executive exists in a company?
+			if (company.getExecutives().size() > 0)
+			{
+				if (company.getExecutives().get(0).getGender().equals("male"))
+					executive_firstandlast_name.setText("Mr. " + company.getExecutives().get(0).getFirstname() + " " + company.getExecutives().get(0).getLastname());
+				else
+					executive_firstandlast_name.setText("Ms. " + company.getExecutives().get(0).getFirstname() + " " + company.getExecutives().get(0).getLastname());
+				executive_function.setText(company.getExecutives().get(0).getTitleEn() + " " + company.getName() + " (" + company.getLocation().getCountry().getNameEn() + ")" );		
+			}
 		}
+		if (layoutType == 2)
+		{
+			if (view == null) {
+				LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+				view = inflater.inflate(R.layout.executiveitemview2, parent, false);
+			}
+	
+			Company company = companiesList.get(index);
+			
+			TextView executive_firstandlast_name = (TextView)view.findViewById(R.id.executive_firstandlast_name);
+			TextView executive_function = (TextView)view.findViewById(R.id.executive_function);
+	
+			//check if an executive exists in a company?
+			if (company.getExecutives().size() > 0)
+			{
+				if (company.getExecutives().get(0).getGender().equals("male"))
+					executive_firstandlast_name.setText("Mr. " + company.getExecutives().get(0).getFirstname() + " " + company.getExecutives().get(0).getLastname());
+				else
+					executive_firstandlast_name.setText("Ms. " + company.getExecutives().get(0).getFirstname() + " " + company.getExecutives().get(0).getLastname());
+				executive_function.setText(company.getExecutives().get(0).getTitleEn() + " " + company.getName() + " (" + company.getLocation().getCountry().getNameEn() + ")" );		
+			}
+		}
+		
 		return view;
 	}
 

@@ -1,9 +1,11 @@
 package com.kaassa.business.views;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 import com.kaassa.business.R;
+import com.kaassa.business.controllers.CallKaassaBusinessWS;
 import com.kaassa.business.controllers.CompanyAdapter;
 import com.kaassa.business.controllers.ManageViewTransitions;
 import com.kaassa.business.models.Company;
@@ -30,6 +32,8 @@ import android.widget.TextView;
 
 public class CompanyList extends Activity implements OnClickListener {
 
+	private int LAYOUT_TYPE = 1;
+	 private List<Company> companiesList = new ArrayList<Company>();
 	 CompanyAdapter companyAdapter;
 	 //search filter on company page. based on company name
 	 EditText editsearch;
@@ -50,8 +54,11 @@ public class CompanyList extends Activity implements OnClickListener {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.companypage);
 	        
+			CallKaassaBusinessWS callKaassaWS = new CallKaassaBusinessWS();
+			companiesList = callKaassaWS.getCompaniesList();
+	        
 	        ListView companies_list = (ListView)findViewById(R.id.companies_list);
-	        companyAdapter = new CompanyAdapter();
+	        companyAdapter = new CompanyAdapter((ArrayList<Company>) companiesList, LAYOUT_TYPE);
 	        companies_list.setAdapter(companyAdapter);
 	        
 	        //Set company list results count

@@ -13,6 +13,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.kaassa.business.R;
+import com.kaassa.business.controllers.CompanyAdapter;
+import com.kaassa.business.controllers.ExecutiveAdapter;
 import com.kaassa.business.models.Company;
 import com.kaassa.business.models.Executive;
 
@@ -20,6 +22,9 @@ public class ExecutiveFragment extends ListFragment
 {
 	protected Activity mActivity;
 	protected ListView executives_list;
+	private int LAYOUT_TYPE = 2;
+	
+	ExecutiveAdapter executiveAdapter; 
 	
  
 	@Override
@@ -49,7 +54,6 @@ public class ExecutiveFragment extends ListFragment
 
     }
 
-
 	 public void setListExecutive(List<Executive> executives, Activity mActivity) 
 	 {		  
 		 
@@ -59,8 +63,10 @@ public class ExecutiveFragment extends ListFragment
 		  {
 			  executivesName.add(executives.get(i).getFirstname() + " " + executives.get(i).getLastname());
 		  }
-		  ArrayAdapter<String> listExecutiveAdapter = new ArrayAdapter<String>(mActivity, R.layout.listviewitem_executives, executivesName);
-		  executives_list.setAdapter(listExecutiveAdapter);
+//		  ArrayAdapter<String> listExecutiveAdapter = new ArrayAdapter<String>(mActivity, R.layout.listviewitem_executives, executivesName);
+//		  executives_list.setAdapter(listExecutiveAdapter);
+
+
 	 }
 	 
 
